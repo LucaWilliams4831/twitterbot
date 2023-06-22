@@ -10,7 +10,7 @@ import json
 from datetime import date
 import pytz
 
-BOT_TOKEN = ""
+BOT_TOKEN = "6033042673:AAFMFI-1Tz9PJtdKl2r09Ir774oxoXqEzmY"
 channel_id = '-1001934424799'
 text = "<a href='a.com'> meme </a>"
 url = "https://www.census.gov/popclock/data/population.php/us"
