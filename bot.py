@@ -85,12 +85,12 @@ def main():
         timezone = pytz.timezone('US/Pacific')
 
         # get the current date time in the desired format
-        current_time = datetime.datetime.now(timezone).strftime('%B %d, %Y, %I:%M %p %Z')
+        current_time = datetime.datetime.now(timezone).strftime('%B %d, %Y, %I:%M %p %Z').replace("PDT", "PST")
 
         # print the current date time with timezone
         
 
-        caption = "\n"+ f"\n🇺🇲 <a href='{debturl}'>#nationaldebt:</a> {str_curdebt} \n \n Debt per person: ${str_perdebt} 👀\n <a href='{bitcoinurl}'>#Bitcoin</a> per person: {str_perbitcoin} 🚀 \n\n <a href='{usdebturl}'>#USDEBT</a> <a href='{websiteurl}'> #ITONLYGOESUP</a>\n Meme-ing our way into a Bull Run in Crypto! \n \n Source: USDEBTMEMECOIN('{current_time}')\n <a href='{cryptourl}'>#Crypto</a><a href = '{memecoinurl}'> #memecoins </a>"
+        caption = "\n"+ f"\n🇺🇲 <a href='{debturl}'>#nationaldebt:</a>${str_curdebt} \n \nDebt per person: ${str_perdebt} 👀\n<a href='{bitcoinurl}'>#Bitcoin</a> per U.S. person: {str_perbitcoin} 🚀 \n\n<a href='{usdebturl}'>$USDEBT</a> <a href='{websiteurl}'> #ITONLYGOESUP</a>\nMeme-ing our way into a Bull Run in Crypto! \n \nSource: USDEBTMEMECOIN({current_time})\n<a href='{cryptourl}'>#Crypto</a><a href = '{memecoinurl}'> #memecoins </a>"
         # caption = f"\n🇺🇲 <a href='{debturl}'>#nationaldebt:</a> {curDebt} \n \n Debt per person: ${per_debt} \n <a href='{bitcoinurl}'>#Bitcoin</a> per person: {per_bitcoin} \n <a href={websiteurl}></a>\n Meme-ing our way into a Bull Run in Crypto! \n \n Source: USDEBTMEMECOIN(June)\n <a href = {websiteurl}>#Crypto #memecoins </a>"
         # bot.send_message(chat_id=channel_id, text=text)
         bot.send_photo(chat_id=channel_id, photo=open("msg.png", 'rb'), caption=caption,  parse_mode='HTML')
@@ -98,6 +98,7 @@ def main():
 
 @bot.message_handler(func=lambda msg: True)
 def echo_all(message):
+    print("bot received message")
     bot.reply_to(message, message.text)
     print(message.chat.id)
 if __name__ == '__main__':
