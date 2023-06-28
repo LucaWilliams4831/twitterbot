@@ -10,7 +10,7 @@ import json
 from datetime import date
 import pytz
 
-BOT_TOKEN = "6033042673:AAFMFI-1Tz9PJtdKl2r09Ir774oxoXqEzmY"
+BOT_TOKEN = ""
 channel_id = '-1001934424799'
 text = "<a href='a.com'> meme </a>"
 url = "https://www.census.gov/popclock/data/population.php/us"
@@ -75,12 +75,18 @@ def main():
         print("per_bitcoin", per_bitcoin)
         print("################################")
         
-        debturl = "https://twitter.com/hashtag/nationaldebt?src=hashtag_click"
-        websiteurl = "https://twitter.com/hashtag/ITONLYGOESUP?src=hashtag_click"
-        bitcoinurl = "https://twitter.com/hashtag/Bitcoin?src=hashtag_click"
-        usdebturl = "https://twitter.com/search?q=%24USDEBT&src=cashtag_click"
-        memecoinurl = "https://twitter.com/hashtag/memecoins?src=hashtag_click"
-        cryptourl = "https://twitter.com/hashtag/Crypto?src=hashtag_click"
+        debturl = ""
+        websiteurl = ""
+        bitcoinurl = ""
+        usdebturl = ""
+        memecoinurl = ""
+        cryptourl = ""
+        # debturl = "https://twitter.com/hashtag/nationaldebt?src=hashtag_click"
+        # websiteurl = "https://twitter.com/hashtag/ITONLYGOESUP?src=hashtag_click"
+        # bitcoinurl = "https://twitter.com/hashtag/Bitcoin?src=hashtag_click"
+        # usdebturl = "https://twitter.com/search?q=%24USDEBT&src=cashtag_click"
+        # memecoinurl = "https://twitter.com/hashtag/memecoins?src=hashtag_click"
+        # cryptourl = "https://twitter.com/hashtag/Crypto?src=hashtag_click"
     
         timezone = pytz.timezone('US/Pacific')
 
@@ -90,11 +96,11 @@ def main():
         # print the current date time with timezone
         
 
-        caption = "\n"+ f"\n🇺🇲 <a href='{debturl}'>#nationaldebt:</a>${str_curdebt} \n \nDebt per person: ${str_perdebt} 👀\n<a href='{bitcoinurl}'>#Bitcoin</a> per U.S. person: {str_perbitcoin} 🚀 \n\n<a href='{usdebturl}'>$USDEBT</a> <a href='{websiteurl}'> #ITONLYGOESUP</a>\nMeme-ing our way into a Bull Run in Crypto! \n \nSource: USDEBTMEMECOIN({current_time})\n<a href='{cryptourl}'>#Crypto</a><a href = '{memecoinurl}'> #memecoins </a>"
+        caption = "\n"+ f"\n🇺🇲 <a href='{debturl}'>#NationalDebt: </a>${str_curdebt} \n \nDebt per person: ${str_perdebt} 👀\n<a href='{bitcoinurl}'>#Bitcoin</a> per U.S. person: {str_perbitcoin} 🚀 \n\nSpread Awareness. Get in <a href='{usdebturl}'>$USDEBT</a>. Fuel the crypto Bull Run!\n<a href='{websiteurl}'> #ITONLYGOESUP</a>\n \nSource: USDEBT Meme Coin({current_time})\n<a href='{cryptourl}'>#Crypto</a><a href = '{memecoinurl}'> #memecoins </a>"
         # caption = f"\n🇺🇲 <a href='{debturl}'>#nationaldebt:</a> {curDebt} \n \n Debt per person: ${per_debt} \n <a href='{bitcoinurl}'>#Bitcoin</a> per person: {per_bitcoin} \n <a href={websiteurl}></a>\n Meme-ing our way into a Bull Run in Crypto! \n \n Source: USDEBTMEMECOIN(June)\n <a href = {websiteurl}>#Crypto #memecoins </a>"
         # bot.send_message(chat_id=channel_id, text=text)
         bot.send_photo(chat_id=channel_id, photo=open("msg.png", 'rb'), caption=caption,  parse_mode='HTML')
-        time.sleep(60)
+        time.sleep(60 * 60)
 
 @bot.message_handler(func=lambda msg: True)
 def echo_all(message):
